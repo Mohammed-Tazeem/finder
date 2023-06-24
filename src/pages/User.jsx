@@ -7,7 +7,7 @@ import Spinner from '../Components/layout/Spinner'
 import RepoList from '../Components/repos/RepoList'
 import {getUserAndRepos} from '../context/github/GithubActions'
 
-function User({}) {
+function User() {
   const params = useParams()
   const {user,loading,repos,dispatch} = useContext(GithubContext)
 
@@ -26,7 +26,7 @@ function User({}) {
     }
 
     getUserData()
-  },[])
+  },[dispatch,params.login])
 
   const{
     name,
@@ -66,7 +66,7 @@ function User({}) {
       <div className="custom-card-image mb-6 md:mb-0">
         <div className="rounded-lg shadow-xl card image-full">
           <figure >
-            <img src={avatar_url}/>
+            <img src={avatar_url} alt='Imagej'/>
           </figure>
           <div className="card-body justify-end">
             <h2 className='card-title mb-0'>
